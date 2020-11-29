@@ -1,0 +1,19 @@
+@page "/Mapa"
+@inject IJSRuntime JSRuntime;
+
+<style>
+    #mapid { height: 400px; }
+</style>
+
+ <div id="mapid"></div>
+
+ @code{
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+             await JSRuntime.InvokeVoidAsync("InitMapa");
+        }
+    }
+}
